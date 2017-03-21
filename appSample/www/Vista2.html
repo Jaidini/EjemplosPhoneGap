@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="css/vista2.css" />
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Hello World</title>
+    <script>
+        function hacerFoto(){
+            //Esto funciona ya que no está añadido el plugin de la cámara
+            navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.destinationType.FILE_URI});
+        }
+
+        function onSuccess(imageURI){
+            var image = document.getElementById('fotoEnLocal');
+            alert('Foto hecha!');
+        }
+
+        function onFail(message){
+            alert('Falla por ' + message);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div data-role="page" id="pageone" data-title="Página principal">
+        <div data-role="panel" id="myPanel">
+            <a href="#pageNot" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">Últimas Notificaciones</a>
+            <a href="#pageCal" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Calendario</a>
+            <a href="#pageEscanear" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Escanear QR</a>
+        </div>
+
+        <div data-role="header">
+            <h1>Avaibook</h1>
+            <a href="#myPanel" id="enlaceMenu" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left menu"></a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div align="center"><img src="img/avaibook.jpg" class="imagen"></div>
+        </div>
+
+        <div data-role="footer">
+            <h1>Este es el Footer</h1>
+        </div>
+    </div>
+
+    <div data-role="page" id="pageNot" data-title="Página principal">
+        <div data-role="panel" id="myPanel">
+            <a href="#pageone" data-role="button" data-icon="home">Inicio</a><!-- Aquí probamos una solución diferente con jQuery Mobile para el icono -->
+            <a href="#pageCal" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Calendario</a>
+            <a href="#pageEscanear" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Escanear QR</a>
+        </div>
+
+        <div data-role="header">
+            <h1>Avaibook</h1>
+            <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left menu"></a>
+            <br>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="mail">Todas las notificaciones</a></li>
+                    <li><a href="#" data-icon="star">Mensajes</a></li>
+                    <li><a href="#" data-icon="calendar">Eventos Calendario</a></li>
+                    <li><a href="#" data-icon="location">Alojamientos Cercanos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div data-role="content">
+                <ul data-inset="true" data-dividertheme="a" data-role="listview">
+                    <li data-theme="b">Aquí dentro</li>
+                    <li data-theme="a">irán</li>
+                    <li data-theme="a">las notificaciones</li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="footer">
+            <h1>Este es el Footer</h1>
+        </div>
+    </div>
+
+    <div data-role="page" id="pageCal" data-title="Página principal">
+        <div data-role="panel" id="myPanel">
+            <a href="#pageone" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">Inicio</a>
+            <a href="#pageNot" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Últimas Notificaciones</a>
+            <a href="#pageEscanear" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Escanear QR</a>
+        </div>
+
+        <div data-role="header">
+            <h1>Avaibook</h1>
+            <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left menu"></a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <strong>Calendario</strong>
+        </div>
+        
+        <div data-role="footer">
+            <h1>Este es el Footer</h1>
+        </div>
+    </div>
+
+    <div data-role="page" id="pageEscanear" data-title="Página principal">
+        <div data-role="panel" id="myPanel">
+            <a href="#pageone" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">Inicio</a>
+            <a href="#pageNot" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Últimas Notificaciones</a>
+            <a href="#pageCal" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Calendario</a>
+        </div>
+
+        <div data-role="header">
+            <h1>Avaibook</h1>
+            <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left menu"></a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h2>Haz la foto del código QR</h2>
+            <!-- Esta parte de momento no funciona ya que hay que añadir el plugin de la cámara -->
+            <input type="button" onclick="hacerFoto()" value="Hacer Foto">
+            <img id="fotoEnLocal" src="" width="100px" height="100px">
+        </div>
+        
+        <div data-role="footer">
+            <h1>Este es el Footer</h1>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+
+</body>
+</html>
