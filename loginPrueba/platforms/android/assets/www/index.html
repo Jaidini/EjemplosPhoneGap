@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Login</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="inicio">
+            <div data-role="header">
+                <h1>Login-AvaiBook</h1>
+            </div>
+
+            <div data-role="content">
+                <form id="formulario">
+                    <label>Usuario: </label>
+                    <input type="text" name="nombreUsuario" id="nombreUsuario">
+
+                    <label>Contraseña: </label>
+                    <input type="password" name="clave" id="clave">
+
+                    <input type="submit" name="btnLogin" id="btnLogin" value="Login">
+                </form>
+            </div>
+        </div>
+
+        <div data-role="page" id="welcome">
+            <div data-role="header">
+                <h1>Bienvenido</h1>
+            </div>
+
+            <div data-role="content">
+                <h2>Esta es la App</h2>
+                <h3>El usuario y la contraseña son correctos</h3>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script>
+            //Esto funcionará cuando se ponga un archivo PHP de validacion
+            /*$('#formulario').submit(function(){
+
+                var user = $(#nombreUsuario).val();
+                var pass = $(#clave).val();
+
+                phpValidacion = "";//Aquí iría la dirección donde esté nuestro archivo de validación PHP
+
+                $.getJSON(phpValidacion, {usuario:user, password:pass}).done(function(respuestaPHP){
+                    alert(respuestaPHP.mensaje + "\nGenerado en: " + respuestaPHP.hora + "\n" + respuestaPHP.generador)
+
+                    if (respuestaPHP.validacion == "ok") {
+                        $.mobile.changePage("#home")
+                    }else{
+                        alert("Tu usuario o tu contraseña no son correctos")
+                    }
+                })
+
+                return false;
+
+            })*/
+        </script>
+    </body>
+</html>
