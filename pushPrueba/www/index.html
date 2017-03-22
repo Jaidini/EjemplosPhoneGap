@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximun-scale=1, minimun-scale=1, width=devide-width">
+    <title>Prueba Push</title>
+    <script>
+        document.addEventListener("deviceready", deviceReady, false);
+        function deviceReady(){
+            var push = PushNotification.init({
+                android: {
+                senderID: "455908641475"
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            }
+            });
+
+            push.on('registration', function(data){
+                document.getElementById("idDispositivo").innerText = data.registrationId;
+            });
+
+            push.on('notification', function(data){
+                var ul = document.getElementById("notificacionesPush");
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(data.title+": "+data.message));
+            });
+
+            push.on('error', function(e){
+                alert('Error: ' + e.message);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="app">
+        <h1>Prueba Push</h1>
+        <p id="idDispositivo"></p>
+        <ul id="notificacionesPush"></ul>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>
