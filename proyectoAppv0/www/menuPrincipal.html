@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/menuPrincipal.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>AvaiBook</title>
+        <script>
+            function doPhoto(){
+                navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+            }
+
+            function onSuccess(imgURI){
+                var image = document.getElementById('localPhoto');
+                image.src = imgURI;
+            }
+
+            function onFail(message){
+                alert('Falla porque ' + message);
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="pagPrincipal">
+            <div data-role="header">
+                <h1>AvaiBook</h1>
+                <a href="#panelPrincipal" data-icon="bars"></a>
+            </div>
+
+            <div data-role="panel" id="panelPrincipal">
+                <a href="#pagNotificaciones" class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left">Últimas Notificaciones</a>
+                <a href="#" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Calendario</a>
+                <a href="#pagQR" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Escanear QR</a>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <h3>¡Bienvenido a la App Móvil de AvaiBook!</h3>
+                <div>En esta App podrás encontrar las mismas utilidades que en nuestra página web pero de un modo más accesible.</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="pagNotificaciones">
+            <div data-role="header">
+                <h1>AvaiBook</h1>
+                <a href="#panelPrincipalNot" data-icon="bars"></a>
+                <br>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="mail">Todas las notificaciones</a></li>
+                        <li><a href="#" data-icon="star">Mensajes</a></li>
+                        <li><a href="#" data-icon="calendar">Eventos Calendario</a></li>
+                        <li><a href="#" data-icon="location">Alojamientos Cercanos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="panel" id="panelPrincipalNot">
+                <a href="#pagPrincipal" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left">Inicio</a>
+                <a href="#" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Calendario</a>
+                <a href="#pagQR" class="ui-btn ui-corner-all ui-icon-camera ui-btn-icon-left">Escanear QR</a>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <h3>Contenido de momento no disposnible</h3>
+            </div>
+        </div>
+
+        <div data-role="page" id="pagQR">
+            <div data-role="header">
+                <h1>AvaiBook</h1>
+                <a href="#panelPrincipalQR" data-icon="bars"></a>
+            </div>
+
+            <div data-role="panel" id="panelPrincipalQR">
+                <a href="#pagPrincipal" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left">Inicio</a>
+                <a href="#pagNotificaciones" class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left">Últimas Notificaciones</a>
+                <a href="#" class="ui-btn ui-corner-all ui-icon-calendar ui-btn-icon-left">Calendario</a>
+            </div>
+
+            <div data-role="main" class="ui-content" id="photoPrincipal">
+                <h1 align="center">Capturar QR</h1>            
+                <br>
+                <div align="center" style="width: 200px; height: 200px">
+                    <strong>Está es la foto que has hecho</strong>
+                    <img src="" id="localPhoto" width="100%" height="100%">
+                
+                    <input type="button" onclick="doPhoto()" value="Hacer Foto">
+                    <input type="button" onclick="" value="Comprobar QR">
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

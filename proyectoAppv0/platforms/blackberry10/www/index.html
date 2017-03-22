@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>AvaiBook</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Este es el login</h1>
+
+            <!-- En este siguiente form vamos a preguntar por los datos del usuario
+                 para después cotejarlos con la base de datos y poder darl eel acceso a la APP -->
+            <form>
+                <label>Nombre usuario:</label>
+                <input type="text" name="nomUser" id="nomUser">
+
+                <label>Contraseña:</label>
+                <input type="password" name="passUser" id="passUser">
+
+                <!--<input type="submit" name="btnSubmit" id="btnSubmit" value="Entrar"> esto es lo que usaremos realmente en el futuro, de momento simplemente vamos a usar un <a></a>-->
+                <a href="menuPrincipal.html">Entrar</a>
+            </form>
+
+           <!-- <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>-->
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
