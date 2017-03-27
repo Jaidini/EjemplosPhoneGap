@@ -1,0 +1,14 @@
+.app{
+    text-align: center;
+    background-color: gray;
+}
+
+.app2{
+    text-align: center;
+    background-color: #A2A2A2;
+}
+
+#logout{
+    background-color: blue;
+    font-color: white;
+}
