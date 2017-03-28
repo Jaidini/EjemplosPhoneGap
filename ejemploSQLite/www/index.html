@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=default-width; user-scalable=no" />
+        <title>Ejemplo SQLite</title>
+        <!-- Añadimos el archivo cordova.js para usar sus funciones -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- Añdimos jQuery 3.2.1 -->
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <!-- Programamos aquí -->
+        <script type="text/javascript" charset="utf-8">
+            //Variables globales
+            var bd;
+            var shortName = 'SQLiteBD';
+            var version = '1.0';
+            var displayName = 'SQLiteBD';
+            var max = 65535;
+
+            //Esta función se llama cuando ocurre un error en la transacción
+            function errorHandler(transaction, error){
+                alert('Error: ' + error.message + ' ; Code: ' + error.code);
+            }
+
+            function nullHandler(){}
+
+            //Se llama cuando se acierta la transacción
+            function successCallBack(){
+                alert("SUCCESS!");
+            }
+
+            //Se llama cuando carga la aplicación
+            function onBodyLoad(){
+                //Por si acaso el móvil no soporta bd internas
+                if(!window.openDataBase){
+                    alert('Este móvil no soporta bd internas');
+                }
+                //Aquí se abre o se crea la base de datos
+                bd = openDataBase(shortName, version, displayName, max);
+                bd.transaction(function(tx){
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS Prueba(pruebaId INTEGER NOT NULL PRIMARY KEY, nombre TEXT NOT NULL)', [], nullHandler, errorHandler);
+                }, errorHandler, successCallBack);
+            }
+
+            //Con est afuncoión vamos a listar la bd
+            function listar(){
+                if(!window.openDataBase){
+                    alert('Este móvil no soporta bd internas');
+                }
+                //Con esto sacamos todo lo que esté en la tabla
+                bd.transaction(function(transaction){
+                    transaction.executeSql('SELECT * FROM Prueba;', [], function(transaction, result){
+                        if (result != 0 && result.rows!= null) {
+                            for(var i = 0; i < result.rows.length; i++){
+                                var row = result.rows.item(i);
+                                $('#lblMuestra').append('<br><b>' + row.pruebaId + ' - ' + row.nombre);
+                            }
+                        }
+                    }, errorHandler);
+                }, errorHandler, nullHandler);
+            }
+
+            //Esta función mete valores en la bd
+            function insertar(){
+                if(!window.openDataBase){
+                    alert('Este móvil no soporta bd internas');
+                }
+                bd.transaction(function(transaction){
+                    transaction.executeSql('INSERT INTO Pruebas(nombre) VALUES (?)', [$('#txtNombre').val()], nullHandler, errorHandler);
+                });
+            }
+        </script>
+    </head>
+    <body onload="onBodyLoad()">
+        <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre...">
+        <input type="button" value="Añadir Nombre" onclick="insertar()">
+        <br><br><br><br>
+        <label id="lblMuestra" name="lblMuestra"></label>
+        <input type="button" value="Listar" onclick="listar()">
+    </body>
+</html>
