@@ -12,6 +12,9 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "es.phonegap.imagen"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "es.phonegap.imagen"
         }
     },
     "dependent_plugins": {
