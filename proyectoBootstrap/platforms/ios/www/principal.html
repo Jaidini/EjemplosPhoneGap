@@ -14,7 +14,7 @@
                 navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI });
             }
 
-            function onSuccess(imgURI){
+            function onSuccess(){
                 alert("Funciona!");
             }
 
@@ -43,9 +43,9 @@
                                 <hr>
                                 <a href="#">Reservas</a>
                                 <hr>
-                                <a href="#">Mensajes</a>
+                                <a href="mensajes.html">Mensajes</a>
                                 <hr>
-                                <a href="#">Escanear QR</a>
+                                <a href="#" onclick="doPhoto()">Escanear QR</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                     </tr>
                     <tr class="lineaMenu">
                         <td>
-                            <a href="#"><img src="./img/mensaje.png" width="50%" height="50%"><br>
+                            <a href="mensajes.html"><img src="./img/mensaje.png" width="50%" height="50%"><br>
                             Mensajes</a>
                         </td>
                         <td>

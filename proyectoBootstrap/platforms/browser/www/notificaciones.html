@@ -9,6 +9,19 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            function doPhoto(){
+                navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+            }
+
+            function onSuccess(){
+                alert("Funciona!");
+            }
+
+            function onFail(message){
+                alert('Falla porque ' + message);
+            }
+        </script>
     </head>
     <body>
         <div class="page-header">
@@ -30,9 +43,9 @@
                                 <hr>
                                 <a href="#">Reservas</a>
                                 <hr>
-                                <a href="#">Mensajes</a>
+                                <a href="mensajes.html">Mensajes</a>
                                 <hr>
-                                <a href="#">Escanear QR</a>
+                                <a href="#" onclick="doPhoto()">Escanear QR</a>
                             </div>
                         </div>
                     </div>
