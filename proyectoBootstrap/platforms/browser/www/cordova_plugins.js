@@ -58,11 +58,11 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.3.2",
-    "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.4.0",
     "cordova-plugin-barcodescanner": "0.7.0",
     "cordova-plugin-geolocation": "2.4.2",
-    "cordova-plugin-inappbrowser": "1.7.0"
+    "cordova-plugin-inappbrowser": "1.7.0",
+    "cordova-plugin-compat": "1.1.0"
 }
 // BOTTOM OF METADATA
 });
