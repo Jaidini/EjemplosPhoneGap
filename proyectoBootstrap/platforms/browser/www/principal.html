@@ -9,6 +9,19 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            function doPhoto(){
+                navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+            }
+
+            function onSuccess(imgURI){
+                alert("Funciona!");
+            }
+
+            function onFail(message){
+                alert('Falla porque ' + message);
+            }
+        </script>
     </head>
     <body>
         <div class="page-header">
@@ -26,34 +39,40 @@
         </div>
         
         <div class="container appBody">
-            <table class="table">
+            <table class="table table-responsive">
                 <tbody>
-                    <tr>
+                    <tr class="lineaMenu">
                         <td>
-                            <a href="#">Inicio</a>
+                            <a href="#"><img src="./img/home.png" width="50%" height="50%"><br>
+                            Inicio</a>
                         </td>
                         <td>
-                            <a href="#">Calendario</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="notificaciones.html">Últimas Notificaciones</a>
-                        </td>
-                        <td>
-                            <a href="#">Reservas</a>
+                            <a href="calendario.html"><img src="./img/calendario.png" width="50%" height="50%"><br>
+                            Calendario</a>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="lineaMenu">
                         <td>
-                            <a href="#">Mensajes</a>
+                            <a href="notificaciones.html"><img src="./img/mensaje.png" width="50%" height="50%"><br>
+                            Últimas Notificaciones</a>
                         </td>
                         <td>
-                            <a href="#">Escanear QR</a>
+                            <a href="#"><img src="./img/reservas.png" width="50%" height="50%"><br>
+                            Reservas</a>
+                        </td>
+                    </tr>
+                    <tr class="lineaMenu">
+                        <td>
+                            <a href="#"><img src="./img/mensaje.png" width="50%" height="50%"><br>
+                            Mensajes</a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="doPhoto()"><img src="./img/qr.png" width="50%" height="50%"><br>
+                            Escanear QR</a>
                         </td>
                     </tr>
                 </tbody>
-            </table>          
+            </table>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script>

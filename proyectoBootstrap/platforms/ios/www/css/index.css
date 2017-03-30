@@ -8,13 +8,47 @@ body{
 
 .appBody{
 	position: relative;
-	text-align: center;
 }
 
 .lineaMenu{
 	height: 100px;
+	text-align: center;
 }
 
 a{
 	color: black;
+}
+
+.vistaWeb{
+	width: 100%;
+}
+
+@media(max-width: 575px){
+	.vistaWeb{
+		height: 600px;
+	}
+}
+
+@media(min-width: 576px) and (max-width: 767px){
+	.vistaWeb{
+		height: 800px;
+	}
+}
+
+@media(min-width: 768px) and (max-width: 991px){
+	.vistaWeb{
+		height: 1000px;
+	}
+}
+
+@media(min-width: 992px) and (max-width: 1199px){
+	.vistaWeb{
+		height: 1200px;
+	}
+}
+
+@media(min-width: 1200px){
+	.vistaWeb{
+		height: 1400px;
+	}
 }
