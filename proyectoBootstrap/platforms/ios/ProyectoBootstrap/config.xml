@@ -18,6 +18,15 @@
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
+    <feature name="BarcodeScanner">
+        <param name="ios-package" value="CDVBarcodeScanner" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
     <name>ProyectoBootstrap</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

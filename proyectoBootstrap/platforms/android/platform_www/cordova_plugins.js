@@ -31,6 +31,37 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+        "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+        "pluginId": "cordova-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.geolocation",
+        "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.PositionError",
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "runs": true
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -38,7 +69,10 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.3.2",
     "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-camera": "2.4.0"
+    "cordova-plugin-camera": "2.4.0",
+    "cordova-plugin-barcodescanner": "0.7.0",
+    "cordova-plugin-geolocation": "2.4.2",
+    "cordova-plugin-inappbrowser": "1.7.0"
 };
 // BOTTOM OF METADATA
 });

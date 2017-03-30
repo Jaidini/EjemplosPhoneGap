@@ -12,6 +12,15 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.phonegap.proyectoBootstrap"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.phonegap.proyectoBootstrap"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.phonegap.proyectoBootstrap"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.proyectoBootstrap"
         }
     },
     "dependent_plugins": {
